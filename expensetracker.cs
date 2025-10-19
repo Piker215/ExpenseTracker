@@ -10,7 +10,7 @@ class Program
 {
     static void Main(string[] args)
     {
-    a:
+
         Dictionary<string, int> products = new Dictionary<string, int>()
         {
             {"Mouse", 10 },
@@ -19,10 +19,12 @@ class Program
             {"PC", 600 },
             {"Mouse Pad", 5 }
         };
-        Console.WriteLine("What products have you bought? (with capital letter start!)");
-        int number = 0;
         int i = 0;
+        int number = 0;
         int sum = 0;
+        a:
+        Console.WriteLine("What products have you bought? (with capital letter start!)");
+
         string action = Console.ReadLine();
         if (action == "help")
         {
@@ -36,26 +38,26 @@ class Program
             Console.Clear();
             goto a;
         }
-        else if (products.ContainsKey(action))
+        else if (products.ContainsKey(action) && i == 0)
         {
             i++;
             Console.WriteLine("How many of these did you buy?");
-            int number = Convert.ToInt16(Console.ReadLine());
+            number = Convert.ToInt16(Console.ReadLine());
             int convert = Convert.ToInt32(products[action]);
             int result = convert * number;
-            sum = sum + result;
+            sum += result;
             Console.WriteLine($"The cost for this is: {result}");
             goto a;
         }
         else if (products.ContainsKey(action) && i > 0)
-        {
-            Console.WriteLine("How many of these did you buy?");
-            int number = Convert.ToInt16(Console.ReadLine());
-            int convert = Convert.ToInt32(products[action]);
-            int result = convert * number;
-            sum = sum + result;
-            Console.WriteLine($"The total cost so far is: {sum}");
-            goto a;
+         {
+             Console.WriteLine("How many of these did you buy?");
+             number = Convert.ToInt16(Console.ReadLine());
+             int convert = Convert.ToInt32(products[action]);
+             int result = convert * number;
+             sum += result;
+             Console.WriteLine($"The total cost so far is: {sum}");
+             goto a;
         }
     }
 }
