@@ -3,7 +3,7 @@ using System.Reflection;
 
 class Graph
 {
-    static void Main(string[] args)
+    static void Grapher(string[] args)
     {
         double Graph(int costs, int expenses)
         {
